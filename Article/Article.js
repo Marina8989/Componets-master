@@ -102,7 +102,7 @@ const data = [{
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 */
-function createComponent(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+function createComponent(title, firstParagraph, secondParagraph, thirdParagraph, button) {
 
     let article = document.createElement('div');
     let articleTitle = document.createElement('h2');
@@ -110,6 +110,25 @@ function createComponent(title, date, firstParagraph, secondParagraph, thirdPara
     let parTwo = document.createElement('p');
     let parThree = document.createElement('p');
     let expandButton = document.createElement('span');
+
+    article.append(articleTitle);
+    article.append(parOne);
+    article.append(parTwo);
+    article.append(parThree);
+    article.append(expandButton);
+
+    article.classList.add('article');
+    parOne.classList.add('date');
+    parTwo.classList.add('date');
+    parThree.classList.add('date');
+    expandButton.classList.add('expandButton');
+
+    articleTitle.textContent = title;
+    parOne.textContent = firstParagraph;
+    parTwo.textContent = secondParagraph;
+    parThree.textContent = thirdParagraph;
+    expandButton.textContent = button;
+
 
     /*
       Step 2: Add an event listener to the expandButton span.This event listener should toggle the class 'article-open'
@@ -123,19 +142,21 @@ function createComponent(title, date, firstParagraph, secondParagraph, thirdPara
 }
 
 
-
-
-
-
-
-
 /*
  Step 4: Map over the data, creating a component
  for each oject and add each component to the DOM as children of the 'articles'
  div.
 */
+const articles = document.querySelector('.articles');
+console.log(articles);
+
+data.forEach(item => {
+    articles.append(createComponent(item.title, item.firstParagraph, item.secondParagraph, item.thirdParagraph, item.button))
+    console.log(item);
+})
+
 /*
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
-
+   
 */
