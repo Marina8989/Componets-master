@@ -102,9 +102,10 @@ const data = [{
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each piece of the data object above.
 */
-function createComponent(title, firstParagraph, secondParagraph, thirdParagraph, button) {
+function createComponent(title, date, firstParagraph, secondParagraph, thirdParagraph) {
 
     let article = document.createElement('div');
+    let articleDate = document.createElement('p');
     let articleTitle = document.createElement('h2');
     let parOne = document.createElement('p');
     let parTwo = document.createElement('p');
@@ -112,18 +113,18 @@ function createComponent(title, firstParagraph, secondParagraph, thirdParagraph,
     let spanBtn = document.createElement('span');
 
     article.classList.add('article');
-    parOne.classList.add('date');
-    parTwo.classList.add('date');
-    parThree.classList.add('date');
+    articleDate.classList.add('date');
     spanBtn.classList.add('expandButton');
 
     articleTitle.textContent = title;
+    articleDate.textContent = date;
     parOne.textContent = firstParagraph;
     parTwo.textContent = secondParagraph;
     parThree.textContent = thirdParagraph;
     spanBtn.textContent = 'button';
 
     article.append(articleTitle);
+    article.append(articleDate);
     article.append(parOne);
     article.append(parTwo);
     article.append(parThree);
@@ -135,6 +136,9 @@ function createComponent(title, firstParagraph, secondParagraph, thirdParagraph,
     */
     spanBtn.addEventListener('click', event => {
             article.classList.toggle('article-open');
+            parOne.classList.toggle('toggle-on');
+            parTwo.classList.toggle('toggle-on');
+            parThree.classList.toggle('toggle-on');
         })
         /* Step 3: return the entire component. */
     return article;
@@ -149,7 +153,7 @@ function createComponent(title, firstParagraph, secondParagraph, thirdParagraph,
 const articles = document.querySelector('.articles');
 
 data.forEach(item => {
-    articles.append(createComponent(item.title, item.firstParagraph, item.secondParagraph, item.thirdParagraph, item.button))
+    articles.append(createComponent(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph))
 
 })
 
