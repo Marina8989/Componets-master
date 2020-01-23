@@ -109,32 +109,31 @@ function createComponent(title, firstParagraph, secondParagraph, thirdParagraph,
     let parOne = document.createElement('p');
     let parTwo = document.createElement('p');
     let parThree = document.createElement('p');
-    let expandButton = document.createElement('span');
-
-    article.append(articleTitle);
-    article.append(parOne);
-    article.append(parTwo);
-    article.append(parThree);
-    article.append(expandButton);
+    let spanBtn = document.createElement('span');
 
     article.classList.add('article');
     parOne.classList.add('date');
     parTwo.classList.add('date');
     parThree.classList.add('date');
-    expandButton.classList.add('expandButton');
+    spanBtn.classList.add('expandButton');
 
     articleTitle.textContent = title;
     parOne.textContent = firstParagraph;
     parTwo.textContent = secondParagraph;
     parThree.textContent = thirdParagraph;
-    expandButton.textContent = button;
+    spanBtn.textContent = 'button';
 
+    article.append(articleTitle);
+    article.append(parOne);
+    article.append(parTwo);
+    article.append(parThree);
+    article.append(spanBtn);
 
     /*
       Step 2: Add an event listener to the expandButton span.This event listener should toggle the class 'article-open'
       on the 'article' div.
     */
-    expandButton.addEventListener('click', event => {
+    spanBtn.addEventListener('click', event => {
             article.classList.toggle('article-open');
         })
         /* Step 3: return the entire component. */
@@ -148,11 +147,10 @@ function createComponent(title, firstParagraph, secondParagraph, thirdParagraph,
  div.
 */
 const articles = document.querySelector('.articles');
-console.log(articles);
 
 data.forEach(item => {
     articles.append(createComponent(item.title, item.firstParagraph, item.secondParagraph, item.thirdParagraph, item.button))
-    console.log(item);
+
 })
 
 /*
