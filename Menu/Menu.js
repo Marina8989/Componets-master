@@ -1,12 +1,12 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
 
 let menuItems = [
-  'Students',
-  'Faculty',
-  "What's New",
-  'Tech Trends',
-  'Music',
-  'Log Out'
+    'Students',
+    'Faculty',
+    "What's New",
+    'Tech Trends',
+    'Music',
+    'Log Out'
 ];
 
 /* 
@@ -33,3 +33,24 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+function createMenu(arr) {
+
+    let divMenu = document.createElement('div');
+    let ul = document.createElement('ul');
+    let li1 = document.createElement('li');
+    let li2 = document.createElement('li');
+    let li3 = document.createElement('li');
+    let li4 = document.createElement('li');
+    let li5 = document.createElement('li');
+    let li6 = document.createElement('li');
+
+    divMenu.classList.add('menu');
+
+    divMenu.append(ul);
+    ul.append(li1);
+    ul.append(li2);
+    ul.append(li3);
+    ul.append(li4);
+    ul.append(li5);
+    ul.append(li6);
+}
